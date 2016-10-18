@@ -48,6 +48,15 @@ label em {
   border-radius: 4px;
 }
 
+input.error {
+  border: 1px solid #ff0000;
+}
+
+.error-message {
+  color: #ff0000;
+  font-style: italic;
+}
+
 .btn {
   color: #fff;
   background-color: #337ab7;

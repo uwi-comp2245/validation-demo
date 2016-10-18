@@ -27,7 +27,7 @@
           <input type="email" id="email" name="email" placeholder="e.g. firstname.lastname@mymona.uwi.edu" required>
         </div>
         <div class="form-field">
-          <label for="website">Website Address:</label>
+          <label for="website">Website Address <em>(Required)</em></label>
           <input type="url" id="website" name="website" placeholder="e.g. http://www.mona.uwi.edu">
         </div>
         <button type="submit" name="submitBtn" class="btn">Submit</button>
