@@ -1,15 +1,15 @@
-window.onload = function () {
-  var myform = document.querySelector('#myform');
+window.addEventListener('DOMContentLoaded', function () {
+  const myform = document.querySelector('#myform');
 
   myform.addEventListener('submit', function (element) {
-    console.log('form submitted');
-    var validationFailed = false;
+    // console.log('form submitted');
+    let validationFailed = false;
 
-    var firstname = document.querySelector('#firstname');
-    var lastname = document.querySelector('#lastname');
-    var telephone = document.querySelector('#telephone');
-    var email = document.querySelector('#email');
-    var website = document.querySelector('#website');
+    const firstname = document.querySelector('#firstname');
+    const lastname = document.querySelector('#lastname');
+    const telephone = document.querySelector('#telephone');
+    const email = document.querySelector('#email');
+    const website = document.querySelector('#website');
 
     // clear any previous error messages
     clearErrors();
@@ -49,7 +49,7 @@ window.onload = function () {
       element.preventDefault();
     }
   });
-};
+});
 
 /**
  * Check if value for a field is empty.
@@ -57,7 +57,7 @@ window.onload = function () {
 function isEmpty(elementValue) {
   if (elementValue.length == 0) {
     // Or you could check if the value == ""
-    console.log('field is empty');
+    // console.log('field is empty');
     return true;
   }
 
@@ -87,6 +87,8 @@ function isValidUrl(websiteAddress) {
  */
 function insertAfter(element, newNode) {
   element.parentNode.insertBefore(newNode, this.nextSibling);
+  // or
+  // element.after(newNode);
 }
 
 // A better way to create insertAfter method.
@@ -98,12 +100,11 @@ function insertAfter(element, newNode) {
  * Clear all error messages
  */
 function clearErrors() {
-  var elementsWithErrors = document.querySelectorAll('.error');
-  //console.log(elementsWithErrors);
-  for (var x = 0; x < elementsWithErrors.length; x++) {
+  const elementsWithErrors = document.querySelectorAll('.error');
+
+  for (let x = 0; x < elementsWithErrors.length; x++) {
     elementsWithErrors[x].setAttribute('class', '');
     elementsWithErrors[x].parentNode.removeChild(elementsWithErrors[x].nextElementSibling);
-    //console.log(elementsWithErrors[x].nextElementSibling);
   }
 
 }
@@ -113,10 +114,10 @@ function clearErrors() {
  */
 function displayErrorMessage(formField, message) {
   formField.setAttribute('class', 'error');
-  var errorMessageText = document.createTextNode(message);
-  var errorMessage = document.createElement('span');
+  const errorMessageText = document.createTextNode(message);
+  const errorMessage = document.createElement('span');
   errorMessage.setAttribute('class', 'error-message');
   errorMessage.appendChild(errorMessageText);
-  //formField.insertAfter(errorMessage);
+
   insertAfter(formField, errorMessage);
 }
